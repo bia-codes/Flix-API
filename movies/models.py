@@ -9,11 +9,11 @@ class Movie(models.Model):
 
     # foreignkey puxa os dados do models Genre (ligação)
     genre = models.ForeignKey(
-        Genre, 
-        on_delete=models.PROTECT, 
-        related_name='movies' # apenas o nome da relação entre Genre e Movie)
+        Genre,
+        on_delete=models.PROTECT,
+        related_name='movies'  # apenas o nome da relação entre Genre e Movie)
     )
-    
+
     release_date = models.DateField(null=True, blank=True)
 
     # manytomany = muitos para muitos

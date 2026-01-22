@@ -6,7 +6,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 class Review(models.Model):
     movie = models.ForeignKey(
         Movie,
-        on_delete = models.PROTECT,
+        on_delete=models.PROTECT,
         related_name='reviews'
     )
 
