@@ -2,11 +2,12 @@ from django.db import models
 from movies.models import Movie
 from django.core.validators import MinValueValidator, MaxValueValidator
 
+
 class Review(models.Model):
     movie = models.ForeignKey(
         Movie,
         on_delete = models.PROTECT,
-        related_name = 'reviews'
+        related_name='reviews'
     )
 
     stars = models.IntegerField(
@@ -20,4 +21,3 @@ class Review(models.Model):
 
     def __str__(self):
         return self
-        

@@ -1,14 +1,11 @@
-""" 
-CRIADA APENAS PARA ESTUDO
+"""CRIADA APENAS PARA ESTUDO
     essas são permissões personalizadas que 
     funcionam juntamente com a configuração das permissões de usuário 
     a partir do painel de admin do Django. 
 """
 
 
-
-'''
-from rest_framework import permissions
+'''from rest_framework import permissions
 
 
 class GenrePermissionClass(permissions.BasePermission):
@@ -28,4 +25,3 @@ class GenrePermissionClass(permissions.BasePermission):
 
         return False
 '''        
-

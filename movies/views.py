@@ -1,5 +1,5 @@
-from django.db.models import Count
-from rest_framework import generics, views
+from django.db.models import Count, Avg
+from rest_framework import generics, views, response, status
 from rest_framework.permissions import IsAuthenticated
 from movies.models import Movie
 from movies.serializers import MovieModelSerializer
@@ -11,6 +11,7 @@ class MovieCreateListView(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = Movie.objects.all()
     serializer_class = MovieModelSerializer
+
 
 class MovieRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
@@ -28,11 +29,10 @@ class MovieStatsView(views.APIView):
         total_reviews = Review.objects.count()
         average_stars = Review.objects.aggregate(avg_stars=Avg('stars'))['avg_stars']
     
-    
-    return response.Response(data={
-        'total_movies': total_movies,
-        'movies_by_genre': movies_by_genre,
-        'total_reviews': total_reviews,
-        'average_stars': round(average_stars) if average_stars else 0,
-    },
-    status=status.HTTP_200_OK)
+        return response.Response(data={
+            'total_movies': total_movies,
+            'movies_by_genre': movies_by_genre,
+            'total_reviews': total_reviews,
+            'average_stars': round(average_stars) if average_stars else 0,
+        },
+            status=status.HTTP_200_OK)
