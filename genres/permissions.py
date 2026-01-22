@@ -1,5 +1,5 @@
 """CRIADA APENAS PARA ESTUDO
-    essas são permissões personalizadas que 
+    essas são permissões personalizadas que
     funcionam juntamente com a configuração das permissões de usuário
     a partir do painel de admin do Django.
 """
