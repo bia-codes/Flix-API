@@ -2,7 +2,7 @@ from rest_framework import serializers
 from movies.models import Movie
 from django.db.models import Avg
 from genres.serializers import GenreSerializer
-from actors.serializers import ActorSerializer
+from actors.serializers import ActorsSerializer
 
 
 class MovieModelSerializer(serializers.ModelSerializer):
@@ -23,8 +23,8 @@ class MovieModelSerializer(serializers.ModelSerializer):
         return value
 
 
-class MovieListDetailSerializer(serializer.ModelSerializer):
-    actors = ActorSerializer(many=True)
+class MovieListDetailSerializer(serializers.ModelSerializer):
+    actors = ActorsSerializer(many=True)
     genre = GenreSerializer()
     rate = serializers.SerializerMethodField(read_only=True)  # campo calculado apenas para leitura (não aparece no cadastro)
 
