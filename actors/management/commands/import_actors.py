@@ -1,5 +1,7 @@
-import csv, datetime
+import csv
+from datetime import datetime
 from django.core.management.base import BaseCommand
+from actors.models import Actors
 
 
 class Command(BaseCommand):
@@ -26,7 +28,7 @@ class Command(BaseCommand):
 
                 self.stdout.write(self.style.NOTICE(name))
 
-                Actor.objects.create(
+                Actors.objects.create(
                     name=name,
                     birthday=birthday,
                     nationality=nationality,
